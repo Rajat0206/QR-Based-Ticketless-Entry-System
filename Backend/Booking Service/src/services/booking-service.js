@@ -1,7 +1,7 @@
 const axios = require('axios');
 var QRCode = require('qrcode')
 
-async function createBooking({ name, phonenumber, guests, email, id, indian}) {
+async function createBooking({ name, phonenumber, guests, id, indian, date }) {
     try {
         const response = await axios.get(`http://localhost:3000/api/v1/ticket/${id}`);
         if(!response.data.success) {
@@ -22,31 +22,45 @@ async function createBooking({ name, phonenumber, guests, email, id, indian}) {
         }
 
         var user = {
-            TicketFor: response.data.data.monumentName,
-            Name: name,
-            PhoneNumber: phonenumber,
-            Email: email,
-            Tickets: guests,
-            Amount: amount,
-            Payment: "Paid",
-            Indian: indian
+            data: {
+                TicketFor: response.data.data.monumentName,
+                Name: name,
+                PhoneNumber: phonenumber,
+                Indian: indian,
+                DATE: date,
+                Tickets: guests,
+                Amount: amount,
+            },
+            secret: pay.data.clientSecret
         }
 
-        const qr = await QRCode.toDataURL(JSON.stringify(user), { errorCorrectionLevel: 'H', version: 15 });
-        console.log(qr);      
-        var obj = {
-            secret: pay.data.clientSecret,
-            qr
-        };
+        return user;
 
-        return obj;
-    
     } catch (error) {
-        console.log("Something went wrong in Booking Service");
+        console.log("Something went wrong in Payment");
         throw {error};
     }
 }
 
-module.exports = createBooking;
+async function generateQR(data) {
+    user = {
+        ...data,
+        Payment: "Paid"
+    };
+
+    try{
+        const qr = await QRCode.toDataURL(JSON.stringify(user), { errorCorrectionLevel: 'H', version: 15 });
+        return qr;
+
+    } catch (error) {
+        console.log("Something went wrong in QR Generation");
+        throw {error};
+    }
+}
+
+module.exports = {
+    createBooking,
+    generateQR
+};
 
 // name, mobile number, foreigner, no of guests, email, id

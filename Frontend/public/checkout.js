@@ -1,8 +1,5 @@
 // This is your test publishable API key.
-const stripe = Stripe("");
-
-// The items the customer wants to buy
-const items = [{ id: "xl-tshirt" }];
+const stripe = Stripe();
 
 let elements;
 
@@ -14,12 +11,22 @@ document
   .addEventListener("submit", handleSubmit);
 
 var emailAddress = '';
+var obj;
 // Fetches a payment intent and captures the client secret
 async function initialize() {
+  obj = {
+    name: localStorage.getItem("name"),
+    phonenumber: localStorage.getItem("phonenumber"),
+    guests: Number(localStorage.getItem("guests")),
+    id: Number(localStorage.getItem("id")) + 1,
+    indian: Boolean(localStorage.getItem("indian")),
+    date: localStorage.getItem("date")
+  };
+  console.log(obj);
   const response = await fetch("/create-payment-intent", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ items }),
+    body: JSON.stringify({ obj })
   });
   const { clientSecret } = await response.json();
 
@@ -47,6 +54,19 @@ async function handleSubmit(e) {
   e.preventDefault();
   setLoading(true);
 
+  var userObject = {
+    ...obj,
+    Email: emailAddress
+  };
+  const response = await fetch("/qr", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ userObject })
+  });
+
+  const { qr } = await response.json();
+  localStorage.setItem("imageQR", qr);
+
   const { error } = await stripe.confirmPayment({
     elements,
     confirmParams: {
@@ -55,7 +75,8 @@ async function handleSubmit(e) {
       receipt_email: emailAddress,
     },
   });
-
+  //const image = document.getElementById("QRcode")
+  //image.src = qr;
   // This point will only be reached if there is an immediate error when
   // confirming the payment. Otherwise, your customer will be redirected to
   // your `return_url`. For some payment methods like iDEAL, your customer will

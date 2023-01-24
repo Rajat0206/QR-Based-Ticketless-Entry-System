@@ -134,10 +134,30 @@ $('.carousel').carousel({
 
 //..................
 function increment() {
-  document.getElementById('demoInput').stepUp();
+  	const cnt = document.getElementById('demoInput');
+	cnt.stepUp(1);
+  	const people = cnt.value;
+	const price = getElementById('amount').value;
+    document.getElementById('totalPrice').value = Number(price)*Number(people);
 }
 function decrement() {
-  document.getElementById('demoInput').stepDown();
+	const cnt = document.getElementById('demoInput');
+	cnt.stepDown(1);
+  	const people = cnt.value;
+	const price = getElementById('amount').value;
+    document.getElementById('totalPrice').value = Number(price)*Number(people);
 }
 
-VANTA.WAVES('background')
+// function myFunction() {
+// 	var checkBox = document.getElementById("inlineCheckbox1");
+// 	var text = document.getElementById("By_state");
+// 	if (checkBox.checked == true){
+// 	  text.style.display = "block";
+	  
+// 	} else {
+// 	   text.style.display = "none";
+// 	}
+//   }
+
+
+  
