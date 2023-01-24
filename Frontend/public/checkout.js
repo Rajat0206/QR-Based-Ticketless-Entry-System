@@ -18,18 +18,20 @@ async function initialize() {
     name: localStorage.getItem("name"),
     phonenumber: localStorage.getItem("phonenumber"),
     guests: Number(localStorage.getItem("guests")),
-    id: Number(localStorage.getItem("id")) + 1,
+    id: Number(localStorage.getItem("id")),
     indian: Boolean(localStorage.getItem("indian")),
     date: localStorage.getItem("date")
   };
-  console.log(obj);
+  
   const response = await fetch("/create-payment-intent", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ obj })
   });
-  const { clientSecret } = await response.json();
 
+  const { clientSecret, data } = await response.json();
+
+  obj = data;
   const appearance = {
     theme: 'stripe',
   };
@@ -54,6 +56,7 @@ async function handleSubmit(e) {
   e.preventDefault();
   setLoading(true);
 
+  console.log(obj);
   var userObject = {
     ...obj,
     Email: emailAddress
@@ -75,8 +78,7 @@ async function handleSubmit(e) {
       receipt_email: emailAddress,
     },
   });
-  //const image = document.getElementById("QRcode")
-  //image.src = qr;
+
   // This point will only be reached if there is an immediate error when
   // confirming the payment. Otherwise, your customer will be redirected to
   // your `return_url`. For some payment methods like iDEAL, your customer will

@@ -263,7 +263,7 @@ async function clicked() {
     
     var id = 0;
     for(var i = 0; i < monuments.length; i++) {
-        if(monuments[i] == place.value) {
+        if(monuments[i].monumentName == place.value) {
             id = monuments[i].id;
         }
     }

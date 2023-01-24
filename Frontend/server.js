@@ -11,7 +11,8 @@ app.post("/create-payment-intent", async (req, res) => {
   const pay = await axios.post(`http://localhost:3001/api/v1/book`, obj);
   
   res.send({
-    clientSecret: pay.data.clientSecret
+    clientSecret: pay.data.clientSecret,
+    data: pay.data.data
   });
 });
 
