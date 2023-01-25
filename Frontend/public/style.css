@@ -1726,12 +1726,22 @@ button:hover {
   margin-bottom: 100px;
 }
 
+#totalPrice{
+  border-radius: 0.5rem;
+}
+
 .flag-container{
   margin-left: 2.3rem;
 }
 #phone{
-  margin-left: 2.3rem;
+  margin-left: 2.6rem;
+  border-radius: 0.5rem;
 }
+
+.selected-flag{
+  margin-left: 0.3rem;
+}
+
 #nav{
   position: relative;
   margin-bottom: 1rem;
@@ -1748,7 +1758,7 @@ button:hover {
   column-gap: 10px;
 
   border: 2px solid;
-  border-radius: 25px;
+  border-radius:2.5rem;
 
   padding: 1rem;
   margin-top: 30rem;
@@ -1767,8 +1777,15 @@ button:hover {
   justify-content: center;
 
 }
-#fname{
+
+#btn{
+  width: 10rem;
+  height:3.5rem;
+  border-radius: 2rem;
+}
+.fname{
   margin: 0.5rem;
+  border-radius: 0.5rem;
   
 }
 #mn{
@@ -1779,6 +1796,8 @@ button:hover {
 }
 #lname{
   margin: 0.5rem;
+  margin-left: 0.6rem;
+  border-radius: 0.5rem;
 }
 #nat1{
   margin: 8px;
@@ -1811,7 +1830,6 @@ button:hover {
 
 
 #monument{
-
   margin: 8px;
 }
 #date{
@@ -1819,7 +1837,8 @@ button:hover {
   
 }
 #Dateholder{
-  margin-left: 3rem;
+  margin-left: 3.6rem;
+  border-radius: 0.5rem;
 }
 input, select{
   width: 200px;
@@ -1834,7 +1853,9 @@ input, select{
 }
 #demoInput{
   padding: 6px 72px 6px 12px;
-  width: fit-content;
+  width: 200px;
+  margin-left: 0.6rem;
+  border-radius: 0.5rem;
   
 }
 #checkbox{
@@ -1843,15 +1864,45 @@ input, select{
 }
 
 #By_state{
-  margin-top: 2rem;
-  margin-left: -9.6rem;
   width: 18.5rem;
   border-radius: 0.375rem;
   padding: 6px 36px 6px 12px;
+  display: block;
+  margin-top: 0rem;
+
+    width: 12rem;
+    margin-left: -1rem;
+}
   
+
+#drop{
+  width: fit-content;
+  border-radius: 0.6rem;
+}
+#amount{
+  width: 5rem;
+  border-radius: 0.5rem;
+}
+#rupee{
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
 }
 
-
+@media all and (max-width: 424px){
+  #amount{
+    margin-top: 0.5rem;
+    margin-left: 2.5rem;
+    width: 12.9rem;
+  }
+  .parent{
+    width:24rem;
+  }
+  #By_state{
+    width: 12.5rem;
+    margin-left: -7rem;
+    margin-top: 2rem;
+  }
+}
 /*FOOTER*/
 /*Footer with waves*/
 
@@ -1868,6 +1919,10 @@ body{
   align-items: center;
   flex-direction: column;
  /* margin-top:35%;*/
+}
+#background{
+  background-image: linear-gradient(to bottom, #ffffff, #ebf4ff, #c8edff, #a1e7f1, #86e0d1);
+
 }
 
 .social-icon,
@@ -1978,6 +2033,69 @@ body{
 }
 l,nat{
   display: flex;
-  flex-direction: row
-  ;
+  flex-direction: row;
+  
+}
+
+.form-select{
+  width:200px ;
+  margin-top: -2.5rem;
+  margin-left: 6rem;
+  
+}
+.success-animation { margin:150px auto;}
+
+.checkmark {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: #4bb71b;
+    stroke-miterlimit: 10;
+    box-shadow: inset 0px 0px 0px #4bb71b;
+    animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+    position:relative;
+    top: 5px;
+    right: 5px;
+   margin: 0 auto;
+}
+.checkmark__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: #4bb71b;
+    fill: #fff;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+ 
+}
+
+.checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes scale {
+    0%, 100% {
+        transform: none;
+    }
+
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+}
+
+@keyframes fill {
+    100% {
+        box-shadow: inset 0px 0px 0px 30px #4bb71b;
+    }
 }

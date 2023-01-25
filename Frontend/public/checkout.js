@@ -1,5 +1,5 @@
 // This is your test publishable API key.
-const stripe = Stripe();
+const stripe = Stripe(config.Publishable_key);
 
 let elements;
 

@@ -10,13 +10,13 @@ formatOnDisplay: true,
 autoFormat: true,
 autoHideDialCode: true,
 autoPlaceholder: true,
-defaultCountry: "auto",
+defaultCountry: "IN",
 ipinfoToken: "yolo",
 
 nationalMode: false,
 numberType: "MOBILE",
-//onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
-preferredCountries: ['sa', 'ae', 'qa','om','bh','kw','ma'],
+//onlyCountries: ['IN','us', 'gb', 'ch', 'ca', 'do'],
+preferredCountries: ['IN', 'us', 'gb','ch','ca','do','ma'],
 preventInvalidNumbers: true,
 separateDialCode: true,
 initialCountry: "auto",
@@ -159,5 +159,7 @@ function decrement() {
 // 	}
 //   }
 
+var totalPrice=document.getElementById('totalPrice');
+var num=12;
+totalPrice.value=num;
 
-  

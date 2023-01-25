@@ -1,0 +1,16 @@
+#bar_code{
+    border: 2px solid;
+    width: fit-content;
+}
+#hideMeAfter5Seconds {
+    animation: hideAnimation 0s ease-in 5s;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes hideAnimation {
+    to {
+      visibility: hidden;
+      width: 0;
+      height: 0;
+    }
+  }

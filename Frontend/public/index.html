@@ -24,9 +24,11 @@
    <!-- navbar-->
    <header>
      <nav class="navbar fixed-top navbar-dark bg-dark" id="nav">
-       <a class="navbar-brand" href="#">
+       <a class="navbar-brand" href="index.html">
        <!-- <img src="Rain.png" width="30" height="30" class="d-inline-block align-top" alt=""> -->
-         Bootstrap
+       <strong style="
+              margin-left: 1rem;
+          "> QR-Based Ticketless Entry System</strong>
        </a>
      </nav>
    </header>
@@ -39,6 +41,7 @@
        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+       <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
      </ol>
      <div class="carousel-inner">
        <div class="carousel-item active">
@@ -46,28 +49,38 @@
          <div class="carousel-caption d-none d-md-block">
            <div class="box box2">
            <h1>Taj Mahal</h1>
-           <p>akbar ki biwi ki kabar</p>
+           <p>The Taj Mahal is a mausoleum located in Agra, India. It was built by the Mughal emperor Shah Jahan in memory of his third wife, Mumtaz Mahal, who died during the birth of their 14th child in 1631. The Taj Mahal is widely considered one of the most beautiful buildings in the world and is a UNESCO World Heritage Site.</p>
            </div>
          </div>
        </div>
        <div class="carousel-item">
-         <img class="d-block w-100" src="https://images.unsplash.com/photo-1545126178-862cdb469409?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="Second slide">
+         <img class="d-block w-100" src="https://images.unsplash.com/photo-1612438214708-f428a707dd4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80" alt="Second slide">
          <div class="carousel-caption d-none d-md-block">
            <div class="box box2">
-           <h1>Hawa Mahal</h1>
-           <p>hawa acchi ati hai</p>
+           <h1>Kedarnath temple</h1>
+           <p>The Kedarnath Temple is a Hindu temple dedicated to Lord Shiva and is located in the Indian state of Uttarakhand in the Himalayas. Chota Char Dham Yamunotri Kedarnath Badrinath Kedarnath Temple is a Hindu temple roughly 1200 years old dedicated to Shiva.</p>
            </div>
          </div>
        </div>
        <div class="carousel-item">
-         <img class="d-block w-100" src="https://static.india.com/wp-content/uploads/2022/06/taj-1.jpg" alt="Third slide">
+         <img class="d-block w-100" src="https://lh3.googleusercontent.com/proxy/FOKZ4QH59mwKfmfm8qP6_SlPB6WBUnTf-8AldnOA8cwxya-bGIylxA5wEYDdpYV7BQlfxsk9Z05QJ5KajlcWpdj3M4CTDEkgrAaG5iQE0z-lhReCRTDTc7b3n34D61d7NVxhCOKn5xVAp62YBXGLYgx8j-u_Wpw=s1360-w1360-h1020" alt="Third slide">
          <div class="carousel-caption d-none d-md-block">
            <div class="box box2">
-           <h1>kuch bhi</h1>
-           <p>hai bhai</p>
+           <h1>Sun Temple Konark</h1>
+           <p>The Sun Temple at Konark is a 13th-century CE Hindu temple located in the coastal town of Konark, Odisha, India. The temple is dedicated to the sun god Surya and is considered to be one of the most important temples in India. The temple is also a UNESCO World Heritage Site known for its intricate carvings and architectural design.</p>
            </div>
          </div>
        </div>
+       <div class="carousel-item">
+        <img class="d-block w-100" src="https://images.unsplash.com/photo-1545126178-862cdb469409?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="Second slide">
+        <div class="carousel-caption d-none d-md-block">
+          <div class="box box2">
+          <h1>Hawa Mahal</h1>
+          <p>Hawa Mahal is a palace located in Jaipur, Rajasthan, India. The palace was built in 1799 by Maharaja Sawai Pratap Singh and is known for its unique architecture that resembles the crown of Lord Krishna.</p>
+          </div>
+        </div>
+      </div>
+   
      </div>
      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -117,10 +130,8 @@
           <!--Counter-->
           <div class="counter">
             <label for=" No of Visitors">Visitors</label>
-            <div class="counter_field">
-              <button id="increment_button" onclick="increment()"><b>+</b></button>
+            <div class="counter_field" >
               <input id="demoInput" type=number min=1 max=100 value=1>
-              <button onclick="decrement()"><b>-</b></button>
             </div>
            </div>
            <br>
@@ -163,9 +174,15 @@
                   for(var i = 0; i < monuments.length; i++) {
                     if(monuments[i].monumentName===this.value){
                       document.getElementById('amount').value=monuments[i].price;
+                      var t=document.getElementById('demoInput');
+                      //..............
+                      var p=document.getElementById('amount');
+                      var totalPrice=document.getElementById('totalPrice');
+                      totalPrice.value=t.value*p.value;
                     }
                   }
                 });
+                
                 </script>
             </div>
             <br>
@@ -177,7 +194,7 @@
              </div>
              <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" value="0" id = "totalPrice" disabled>
              <div class="input-group-append">
-               <span class="input-group-text">₹</span>
+               <span id="rupee">₹</span>
              </div>
            </div>
            <br>
@@ -192,6 +209,7 @@
       </div>
   </div>
   <!--Footer-->
+
      <footer class="footer" >
       <div class="waves">
         <div class="wave" id="wave1"></div>
