@@ -19,7 +19,7 @@ async function initialize() {
     phonenumber: localStorage.getItem("phonenumber"),
     guests: Number(localStorage.getItem("guests")),
     id: Number(localStorage.getItem("id")),
-    indian: Boolean(localStorage.getItem("indian")),
+    indian: localStorage.getItem("indian"),
     date: localStorage.getItem("date")
   };
   
@@ -56,7 +56,6 @@ async function handleSubmit(e) {
   e.preventDefault();
   setLoading(true);
 
-  console.log(obj);
   var userObject = {
     ...obj,
     Email: emailAddress

@@ -254,11 +254,11 @@ async function clicked() {
     const place = document.getElementById('drop');
     const date = document.getElementById('Dateholder');
     const people = document.getElementById('demoInput');
-    const nat = document.getElementById('nat');
+    const nation = document.getElementById('nat');
 
-    var indian = true;
-    if(nat.value != "indian") {
-        indian = false;
+    var indianVal = "Yes";
+    if(nation.value !== 'indian') {
+        indianVal = "No";
     }
     
     var id = 0;
@@ -272,6 +272,6 @@ async function clicked() {
     localStorage.setItem("phonenumber", ph.value);
     localStorage.setItem("guests", people.value);
     localStorage.setItem("id", id);
-    localStorage.setItem("indian", indian);
+    localStorage.setItem("indian", indianVal);
     localStorage.setItem("date", date.value);
 };

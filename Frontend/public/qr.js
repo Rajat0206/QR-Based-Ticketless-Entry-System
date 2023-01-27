@@ -11,6 +11,8 @@ setTimeout(() => {
     
   var divqr=document.getElementById('bar_code');
   divqr.style.display="block";
+  var ps=document.getElementById('pstext');
+  ps.style.display="block";
 
     // 👇️ hides element (still takes up space on page)
     // box.style.visibility = 'hidden';

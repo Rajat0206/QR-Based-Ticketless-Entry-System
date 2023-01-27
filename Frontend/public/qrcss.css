@@ -1,16 +1,17 @@
-#bar_code{
-    border: 2px solid;
-    width: fit-content;
+#bar_code {
+  border: 2px solid;
+  width: fit-content;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
-#hideMeAfter5Seconds {
-    animation: hideAnimation 0s ease-in 5s;
-    animation-fill-mode: forwards;
-  }
-  
-  @keyframes hideAnimation {
-    to {
-      visibility: hidden;
-      width: 0;
-      height: 0;
-    }
-  }
+
+#QRcode {
+  padding: 6rem 6rem -12rem 18rem;
+  justify-content: center;
+  align-items: center;
+}
+
+#pstext {
+  text-align: center;
+}

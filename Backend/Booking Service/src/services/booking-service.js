@@ -11,7 +11,7 @@ async function createBooking({ name, phonenumber, guests, id, indian, date }) {
         const price = response.data.data.price;
         var amount = price * guests;
 
-        if(!indian) {
+        if(indian == "No") {
             amount = amount * 3;
         }
 

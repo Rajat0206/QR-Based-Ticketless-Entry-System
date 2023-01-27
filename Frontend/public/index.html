@@ -42,6 +42,7 @@
        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+       <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
      </ol>
      <div class="carousel-inner">
        <div class="carousel-item active">
@@ -58,12 +59,12 @@
          <div class="carousel-caption d-none d-md-block">
            <div class="box box2">
            <h1>Kedarnath temple</h1>
-           <p>The Kedarnath Temple is a Hindu temple dedicated to Lord Shiva and is located in the Indian state of Uttarakhand in the Himalayas. Chota Char Dham Yamunotri Kedarnath Badrinath Kedarnath Temple is a Hindu temple roughly 1200 years old dedicated to Shiva.</p>
+           <p>The Kedarnath Temple is a 1200 years old Hindu temple dedicated to Lord Shiva. The temple is located on the Garhwal Himalayan range near the Mandakini river, in the state of Uttarakhand. It is one in Char Dhams of Uttarakhand i.e. Yamunotri Gangotri Badrinath and Kedarnath.</p>
            </div>
          </div>
        </div>
        <div class="carousel-item">
-         <img class="d-block w-100" src="https://lh3.googleusercontent.com/proxy/FOKZ4QH59mwKfmfm8qP6_SlPB6WBUnTf-8AldnOA8cwxya-bGIylxA5wEYDdpYV7BQlfxsk9Z05QJ5KajlcWpdj3M4CTDEkgrAaG5iQE0z-lhReCRTDTc7b3n34D61d7NVxhCOKn5xVAp62YBXGLYgx8j-u_Wpw=s1360-w1360-h1020" alt="Third slide">
+         <img class="d-block w-100" src="https://www.tripvaani.com/wp-content/uploads/2020/05/Konark-Sun-Temple-or-Black-Pagoda-The-Chariot-of-Sun.jpg" alt="Third slide">
          <div class="carousel-caption d-none d-md-block">
            <div class="box box2">
            <h1>Sun Temple Konark</h1>
@@ -72,16 +73,25 @@
          </div>
        </div>
        <div class="carousel-item">
-        <img class="d-block w-100" src="https://images.unsplash.com/photo-1545126178-862cdb469409?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="Second slide">
-        <div class="carousel-caption d-none d-md-block">
-          <div class="box box2">
-          <h1>Hawa Mahal</h1>
-          <p>Hawa Mahal is a palace located in Jaipur, Rajasthan, India. The palace was built in 1799 by Maharaja Sawai Pratap Singh and is known for its unique architecture that resembles the crown of Lord Krishna.</p>
-          </div>
-        </div>
-      </div>
+         <img class="d-block w-100" src="https://images.unsplash.com/photo-1545126178-862cdb469409?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="Fourth slide">
+         <div class="carousel-caption d-none d-md-block">
+           <div class="box box2">
+           <h1>Hawa Mahal</h1>
+           <p>Hawa Mahal is a palace located in Jaipur, Rajasthan, India. The palace was built in 1799 by Maharaja Sawai Pratap Singh and is known for its unique architecture that resembles the crown of Lord Krishna.</p>
+           </div>
+         </div>
+       </div>
+       <div class="carousel-item">
+         <img class="d-block w-100" src="https://imgcld.yatra.com/ytimages/image/upload/t_yt_blog_c_fill_q_auto:good_f_auto_w_800_h_500/v1543910413/StatueofUnity1_1543908986.jpg" alt="Fifth slide">
+         <div class="carousel-caption d-none d-md-block">
+           <div class="box box2">
+           <h1>Statue of Unity</h1>
+           <p>The Statue of Unity is the world's tallest statue, with a height of 182 metres (597 feet), located near Kevadia in the state of Gujarat, India. It depicts Indian statesman and independence activist Vallabhbhai Patel (1875–1950), who was the first deputy prime minister and home minister of independent India.</p>
+           </div>
+         </div>
+       </div>
    
-     </div>
+      </div>
      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
        <span class="sr-only">Previous</span>
@@ -169,11 +179,17 @@
               <span id="pri">₹</span>
               <script src = "index.js"></script>
               <script>
-                var getValue=document.getElementsByName('myList')[0];
-                getValue.addEventListener('input',function(){
+                var getValue = document.getElementsByName('myList')[0];
+                var getNationality = document.getElementById('nat');
+                getValue.addEventListener('input',function() {
                   for(var i = 0; i < monuments.length; i++) {
-                    if(monuments[i].monumentName===this.value){
-                      document.getElementById('amount').value=monuments[i].price;
+                    if(monuments[i].monumentName===this.value) {
+                      var amt = monuments[i].price;
+                      if(getNationality.value !== 'indian') {
+                        amt *= 3;
+                      }
+
+                      document.getElementById('amount').value = amt;
                       var t=document.getElementById('demoInput');
                       //..............
                       var p=document.getElementById('amount');
